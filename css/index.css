@@ -1,10 +1,13 @@
+/* Importação de fontes */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* Estilização de CSS geral */
 :root{
     --cor-amarelo: #FFE74C;
     --cor-vermelho: #FF5964;
     --cor-branco: #FFFFFF;
+    --cor-preto: #000000;
     --cor-verde: #6BF178;
     --cor-azul: #35A7FF;
 }
@@ -17,6 +20,7 @@
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
+    scroll-behavior: smooth;
 }
 
 h1{
@@ -42,4 +46,111 @@ p{
     font-family: "Poppins", sans-serif;
     font-weight: 300;
     font-style: normal;
+    margin: 0;
+}
+
+a{
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    margin: 0;
+}
+
+/* Estilização do header */
+
+#header{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#news{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px 0;
+    background-color: var(--cor-verde);
+}
+
+.topo{
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+.box{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: 50px;
+    width: 100%;
+}
+
+.box:first-child{
+    justify-content: start;
+}
+
+.box:last-child{
+    justify-content: end;
+}
+
+.logo{
+    /* border: 1px solid red; */
+    display: flex;
+    width: auto;
+    max-width: 300px;
+    min-width: 100px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    overflow-y: hidden;
+}
+
+.logo img{
+    display: flex;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Estilização do menu navegacao */
+
+#menu{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 10px;
+}
+
+#menu ul{
+    /* border: 1px solid black; */
+    border-top: 1px solid var(--cor-preto);
+    border-bottom: 1px solid var(--cor-preto);
+    display: flex;
+    width: 100%;
+    max-width: 800px;
+    margin: 0;
+    /* gap: 30px; */
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+
+#menu ul li{
+    list-style: none;
+}
+
+#menu ul li a{
+    /* border: 1px solid red; */
+    text-decoration: none;
+    font-weight: 400;
+    color: var(--cor-preto);
+    padding: 5px 20px;
+    position: relative;
 }
