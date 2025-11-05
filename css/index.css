@@ -299,6 +299,13 @@ a{
     margin: 30px auto;
 }
 
+#banner{
+    /* border: 1px solid red; */
+    height: 430px;
+    display: flex;
+}
+
+
 /* Estilização do footer */
 
 .footer {
