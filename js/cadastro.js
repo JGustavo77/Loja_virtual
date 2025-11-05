@@ -115,3 +115,48 @@ if (cepInput) {
         }
     });
 }
+
+const form = document.getElementById("form-cadastro");
+
+const nomeInput = document.getElementById("nome");
+const emailInput = document.getElementById("email");
+const telefoneInput = document.getElementById("telefone");
+const dataNascimentoInput = document.getElementById("data-nascimento");
+const senhaInput = document.getElementById("senha");
+const confirmarSenhaInput = document.getElementById("confirmar-senha");
+
+form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    console.log("Formulário tentou enviar, validando...");
+});
+
+
+function mostrarErro(input, mensagem) {
+    const small = input.parentElement.querySelector(".error-message");
+    small.innerText = mensagem;
+    small.style.color = "red";
+    input.style.borderColor = "red";
+}
+
+function limparErro(input) {
+    const small = input.parentElement.querySelector(".error-message");
+    small.innerText = "";
+    input.style.borderColor = "";
+}
+
+form.addEventListener("input", function () {
+    // listener de input não precisa de preventDefault; apenas valida os campos em tempo real
+    let valido = true;
+
+    if (nomeInput && (nomeInput.value.trim() === "" || nomeInput.value.length < 6 )){
+        mostrarErro(nomeInput, "Por favor, insira seu nome completo.");
+        valido = false;
+    } else if (nomeInput) {
+        limparErro(nomeInput);
+    }
+
+    if (valido){
+        console.log("Formulário válido e pronto para envio!");
+    }
+});
+
