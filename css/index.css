@@ -195,12 +195,11 @@ a {
 
 
 .logo {
-    /* border: 1px solid red; */
+    border: 1px solid red;
     display: flex;
-    width: auto;
-    max-width: 300px;
-    min-width: 100px;
-    height: 100px;
+    width: 100%;
+    max-width: 500px;
+    min-width: 250px;
     justify-content: center;
     align-items: center;
     overflow-y: hidden;
@@ -253,10 +252,10 @@ a {
     /* border: 1px solid black; */
     display: flex;
     width: 100%;
-    max-width: 1366px;
+    max-width: 1500px;
     margin: 0;
     gap: 30px;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     padding: 10px 0;
     background-color: var(--cor-verde);
@@ -265,6 +264,7 @@ a {
 
 #menu ul li {
     list-style: none;
+    text-transform: uppercase;
 }
 
 #menu ul li a {
