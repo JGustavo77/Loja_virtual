@@ -302,12 +302,23 @@ a {
 #Carousel {
     /* border: 1px solid red; */
     margin: 50px auto 100px auto;
+    padding: 0;
+    width: 100%;
+    max-width: 1500px;
+    max-height: 500px;
+    overflow-y: hidden;
 }
 
 #banner {
-    /* border: 1px solid red; */
-    height: 430px;
+    /* border: 1px solid blue; */
+    width: 100%;
+    height: max-content;
     display: flex;
+}
+
+#banner img{
+    width: 100% !important;
+    object-fit: cover !important;
 }
 
 /* Estilização da area de produtos1 */
