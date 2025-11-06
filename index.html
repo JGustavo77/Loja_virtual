@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="shortcut icon" href="public/imgs/favicon/favicon.ico" type="image/x-icon">
     <meta property="og:title" content="ToyMania — Diversão em Cada Clique">
-    <meta property="og:description" content="Loja virtual com os brinquedos mais divertidos e criativos! Explore, escolha e se divirta com a ToyMania.">
+    <meta property="og:description"
+        content="Loja virtual com os brinquedos mais divertidos e criativos! Explore, escolha e se divirta com a ToyMania.">
     <meta property="og:image" content="https://toymania.netlify.app/public/imgs/logo/logotipo-toymania.png">
     <meta property="og:url" content="https://toymania.netlify.app/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="ToyMania">
     <meta property="og:locale" content="pt_BR">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/index.css">
     <script src="js/index.js" defer></script>
     <title>ToyMania | Loja Virtual</title>
 </head>
+
 <body>
     <!-- area do header -->
-    <header id="header" >
+    <header id="header">
         <div id="news">
             <p>🎉 Promoção Relâmpago na ToyMania! garante até 50% OFF 🧸</p>
         </div>
@@ -51,7 +57,7 @@
             <ul>
                 <li>
                     <a href="index.html">Inicio</a>
-                    
+
                 </li>
                 <li>
                     <a href="/pages/cadastrarProduto.html">Produtos</a>
@@ -71,7 +77,8 @@
     <section id="Carousel" class="container">
         <div id="banner" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#banner" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#banner" data-bs-slide-to="0" class="active"
+                    aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#banner" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#banner" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 <button type="button" data-bs-target="#banner" data-bs-slide-to="3" aria-label="Slide 4"></button>
@@ -108,12 +115,12 @@
     <!-- fim, area do banner carousel -->
 
     <!-- area de produtos-->
-     <section id="area-produtos">
+    <section id="area-produtos">
         <h2>Novos Produtos</h2>
         <button type="button" class="btn btn-primary" onclick="next()">Next</button>
         <button type="button" class="btn btn-secondary" onclick="prev()">Prev</button>
         <div class="tela-produtos">
-            <div id="teste" class="produtos" >
+            <div id="teste" class="produtos">
                 <div class="box-card card d-flex justify-content-center">
                     <img src="/public/imgs/produtos/novos/uno.png" alt="" class="card-img-top">
                     <div class="card-body">
@@ -191,7 +198,8 @@
                 </div>
             </div>
         </div>
-     </section>
+        <span id="contador-produtos">/</p>
+    </section>
     <!-- fim, area de produtos-->
 
     <!-- area do footer -->
@@ -200,7 +208,8 @@
             <p>&copy; 2025 ToyMania 🧸 | Todos os direitos reservados</p>
             <p><a href="#">Política de Privacidade</a> · <a href="#">Contato</a></p>
         </div>
-  </footer>
-  <!-- fim, area do footer -->
+    </footer>
+    <!-- fim, area do footer -->
 </body>
+
 </html>

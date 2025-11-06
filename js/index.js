@@ -1,32 +1,53 @@
 const produtos = document.getElementById('teste');
 const widthBoxCard = document.querySelector('.box-card').clientWidth;
 const widthProduto = document.querySelector('.tela-produtos').clientWidth;
-// let widthBox = widthBoxCard;
-let clicksNext = 0;
-let clicksPrev = 0;
+let quantidadeClicks = 0;
 let maxBoxItems = produtos.children.length;
 
-function next(){
-    if(clicksNext == 0){
-        clicksNext++;
-        console.log(widthBoxCard);
-        produtos.style.transform = `translateX(${-clicksNext * (widthBoxCard)}px)`;
+function next() {
+    console.log("chamando next()");
+    if (quantidadeClicks == 0) {
+        quantidadeClicks++;
+        console.log("Primeiro click (next): " + quantidadeClicks);
+        produtos.style.transform = `translateX(${-quantidadeClicks * widthBoxCard}px)`;
+        produtos.style.transition = '0.5s all';
+
+    } else if (quantidadeClicks >= 1 && quantidadeClicks < (maxBoxItems - 1)) {
+        quantidadeClicks++;
+        console.log("Click de nº: " + quantidadeClicks);
+        produtos.style.transform = `translateX(${-quantidadeClicks * (widthBoxCard + 50)}px)`;
         produtos.style.transition = '1s all';
-    }else if(clicksNext >= 1 && clicksNext < maxBoxItems - 1){
-        clicksNext++;
-        console.log(widthBoxCard);
-        produtos.style.transform = `translateX(${-clicksNext * (widthBoxCard + 50)}px)`;
-        produtos.style.transition = '1s all';
-    }else{
-        clicks = 0;
-        // widthBox = widthBoxCard;
+    } else {
+        quantidadeClicks = 0;
         produtos.style.transform = `translateX(0px)`;
     }
+    atualizar(quantidadeClicks + 1);
 }
 
-function prev(){
-    
+function prev() {
+    console.log("chamando prev()");
+    if (quantidadeClicks == 0) {
+        // Já está no início, não faz nada
+        produtos.style.transform = `translateX(0px)`;
+    } else if (quantidadeClicks == 1) {
+        // Volta para o início
+        quantidadeClicks--;
+        console.log("Click de nº: " + quantidadeClicks);
+        produtos.style.transform = `translateX(0px)`;
+        produtos.style.transition = '1s all';
+    } else {
+        // Volta uma posição
+        quantidadeClicks--;
+        console.log("Click de nº: " + quantidadeClicks);
+        produtos.style.transform = `translateX(${-quantidadeClicks * (widthBoxCard + 50)}px)`;
+        produtos.style.transition = '1s all';
+    }
+    atualizar(quantidadeClicks + 1);
+
 }
 
+function atualizar(n) {
+    const p = document.getElementById("contador-produtos");
 
-
+    p.textContent = `${n}/${maxBoxItems}`
+}
