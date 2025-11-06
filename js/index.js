@@ -49,6 +49,7 @@ function next(){
 
         produtos.style.transform = `translateX(0px)`;
     }
+    atualizar(quantidadeClicks + 1);
 }
 
 function prev(){
@@ -109,6 +110,3 @@ function prev(){
         produtos.style.transform = `translateX(${maxBoxItems *  widthBoxCard}px))`;
     }
 }
-
-
-
