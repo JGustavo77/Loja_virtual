@@ -27,16 +27,13 @@ function next() {
 function prev() {
     console.log("chamando prev()");
     if (quantidadeClicks == 0) {
-        // Já está no início, não faz nada
         produtos.style.transform = `translateX(0px)`;
     } else if (quantidadeClicks == 1) {
-        // Volta para o início
         quantidadeClicks--;
         console.log("Click de nº: " + quantidadeClicks);
         produtos.style.transform = `translateX(0px)`;
         produtos.style.transition = '1s all';
     } else {
-        // Volta uma posição
         quantidadeClicks--;
         console.log("Click de nº: " + quantidadeClicks);
         produtos.style.transform = `translateX(${-quantidadeClicks * (widthBoxCard + 50)}px)`;
