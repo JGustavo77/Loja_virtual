@@ -9,6 +9,7 @@
     --cor-vermelho: #FF5964;
     --cor-vermelho-50: #ca3640;
     --cor-branco: #FFFFFF;
+    --cor-cinza-50: #b0babb;
     --cor-preto: #000000;
     --cor-verde: #6BF178;
     --cor-azul: #35A7FF;
@@ -66,6 +67,24 @@ a {
     font-weight: 300;
     font-style: normal;
     margin: 0;
+}
+
+.borda{
+    display: flex;
+    height: 1px;
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.verde{
+    color: var(--cor-verde);
+    background-color: var(--cor-verde);
+}
+
+.azul{
+    color: var(--cor-azul);
+    background-color: var(--cor-azul);
 }
 
 /* Estilização do header */
@@ -335,19 +354,49 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 50px;
     padding: 50px 10px;
+    background-color: var(--cor-branco);
+    /* max-width: 1500px;
+    margin: 0 auto; */
 }
 
 .tela-produtos{
     /* border: 1px solid blue; */
+    position: relative;
     width: 100%;
-    max-width: 1452px;
-    /* max-width: min-content !important; */
+    max-width: 1433px;
     display: flex;
     flex-direction: row;
-    /* padding: 10px 50px; */
     z-index: 2;
     overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.btn-next, .btn-prev{
+    display: flex;
+    width: 40px ;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    font-weight: 200;
+    color: var(--cor-cinza-50);
+    top: 50%;
+    transform: translateY(-100%);
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    z-index: 2;
+}
+
+.btn-next:hover, .btn-prev:hover{
+    font-size: 60px;
+    text-shadow: 2px 2px 2px black;
+}
+
+.btn-next{
+    right: 0;
 }
 
 .produtos {

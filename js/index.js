@@ -4,112 +4,80 @@ var count = 0;
 if(produtos){
     var widthBoxCard = document.querySelector('.box-card').clientWidth;
     var widthProduto = document.querySelector('.tela-produtos').clientWidth;
-    let clicks = 0;
-    let maxBoxItems = produtos.children.length;
+    var clicks = 0;
+    var maxBoxItems = produtos.children.length;
+    var startX = 0;
+    var endX = 0;
+}
 
-    function next(){
-        if(clicks == 0){
-            clicks++;
+produtos.addEventListener('touchstart', (e)=>{
+    startX = e.touches[0].clientX;
+});
 
-            let clickN = document.getElementById('clicks');
-            let qtdItens = document.getElementById('maxBox');
-            let widthItem = document.getElementById('widthBox');
+produtos.addEventListener('touchend', (e)=>{
+    endX = e.changedTouches[0].clientX;
+    pegaDedo();
+});
 
-            clickN.innerHTML = clicks;
-            qtdItens.innerHTML = maxBoxItems;
-            widthItem.innerHTML = widthBoxCard;
-
-            produtos.style.transform = `translateX(${-clicks * (widthBoxCard)}px)`;
-            produtos.style.transition = '1s all';
-
-        }else if(clicks >= 1 && clicks < (maxBoxItems - 3)){
-            clicks++;
-
-            let clickN = document.getElementById('clicks');
-            let qtdItens = document.getElementById('maxBox');
-            let widthItem = document.getElementById('widthBox');
-
-            clickN.innerHTML = clicks;
-            qtdItens.innerHTML = maxBoxItems;
-            widthItem.innerHTML = widthBoxCard;
+function pegaDedo(){
+    const dedo = startX - endX;
 
 
-            produtos.style.transform = `translateX(${-clicks * (widthBoxCard + 50)}px)`;
-            produtos.style.transition = '1s all';
-
+    if(Math.abs(dedo) > 100){
+        if(dedo > 0){
+            next();
         }else{
-            clicks = 0;
-
-            let clickN = document.getElementById('clicks');
-            let qtdItens = document.getElementById('maxBox');
-            let widthItem = document.getElementById('widthBox');
-
-            clickN.innerHTML = 0;
-            qtdItens.innerHTML = 0;
-            widthItem.innerHTML = 0;
-
-            produtos.style.transform = `translateX(0px)`;
+            prev();
         }
-        atualizar(quantidadeClicks + 1);
     }
+}
 
-    function prev(){
-        if(clicks == 0){
-            clicks = (maxBoxItems);
+function next(){
+    console.log(clicks);
+    if(clicks == 0){
+        clicks++;
 
-            let clickN = document.getElementById('clicks');
-            let qtdItens = document.getElementById('maxBox');
-            let widthItem = document.getElementById('widthBox');
+        produtos.style.transform = `translateX(${-clicks * (widthBoxCard + 5)}px)`;
+        produtos.style.transition = '1s all';
 
-            clickN.innerHTML = clicks;
-            qtdItens.innerHTML = maxBoxItems;
-            widthItem.innerHTML = widthBoxCard;
+    }else if(clicks >= 1 && clicks < (maxBoxItems - 3)){
+        clicks++;
+
+        produtos.style.transform = `translateX(${-clicks * (widthBoxCard + 50)}px)`;
+        produtos.style.transition = '1s all';
+
+    }else{
+        clicks = 0;
+        produtos.style.transform = `translateX(0px)`;
+    }
+}
+
+function prev(){
+    if(clicks == 0){
+        clicks = (maxBoxItems - 3);
 
 
-            produtos.style.transform = `translateX(-${(clicks/2) * (widthBoxCard + 50)}px)`;
-            produtos.style.transition = '1s all';
+        produtos.style.transform = `translateX(-${(clicks) * (widthBoxCard + 50)}px)`;
+        produtos.style.transition = '1s all';
 
-        }else if(clicks == maxBoxItems){
-            clicks = maxBoxItems/2;
-            let clickN = document.getElementById('clicks');
-            let qtdItens = document.getElementById('maxBox');
-            let widthItem = document.getElementById('widthBox');
-            
-            clicks--;
+    }else if(clicks == maxBoxItems){
+        clicks = maxBoxItems;
+        
+        clicks--;
 
-            clickN.innerHTML = clicks;
-            qtdItens.innerHTML = maxBoxItems;
-            widthItem.innerHTML = widthBoxCard;
+        produtos.style.transform = `translateX(-${clicks * (widthBoxCard + 50)}px)`;
+        produtos.style.transition = '1s all';
 
-            produtos.style.transform = `translateX(-${clicks * (widthBoxCard + 50)}px)`;
-            produtos.style.transition = '1s all';
+    }else if(clicks > 0 && clicks <= (maxBoxItems)){
+        
+        clicks--;
 
-        }else if(clicks > 0 && clicks <= (maxBoxItems)){
-            let clickN = document.getElementById('clicks');
-            let qtdItens = document.getElementById('maxBox');
-            let widthItem = document.getElementById('widthBox');
-            
-            clicks--;
+        produtos.style.transform = `translateX(-${clicks * (widthBoxCard + 50)}px)`;
+        produtos.style.transition = '1s all';
+    } else{
+        clicks = 0;
 
-            clickN.innerHTML = clicks;
-            qtdItens.innerHTML = maxBoxItems;
-            widthItem.innerHTML = widthBoxCard;
-
-            produtos.style.transform = `translateX(-${clicks * (widthBoxCard + 50)}px)`;
-            produtos.style.transition = '1s all';
-        }else{
-            clicks = 0;
-
-            let clickN = document.getElementById('clicks');
-            let qtdItens = document.getElementById('maxBox');
-            let widthItem = document.getElementById('widthBox');
-
-            clickN.innerHTML = 0;
-            qtdItens.innerHTML = 0;
-            widthItem.innerHTML = 0;
-
-            produtos.style.transform = `translateX(${maxBoxItems *  widthBoxCard}px))`;
-        }
+        produtos.style.transform = `translateX(${maxBoxItems *  widthBoxCard}px))`;
     }
 }
 
@@ -132,8 +100,4 @@ function menu(){
         menu.style.transition = '2s';
         // listaMenu.style.display = 'none';
     }
-
-    
-    
-
 }

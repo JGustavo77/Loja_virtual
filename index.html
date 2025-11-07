@@ -15,6 +15,7 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="ToyMania">
     <meta property="og:locale" content="pt_BR">
+    <meta name="theme-color" content="#6BF178">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
@@ -85,24 +86,16 @@
                     aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#banner" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#banner" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#banner" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                <button type="button" data-bs-target="#banner" data-bs-slide-to="4" aria-label="Slide 5"></button>
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="public/imgs/banners/banner1.png" class="w-100" alt="">
+                    <img src="public/imgs/banners/BANNER1.png" class="w-100" alt="">
                 </div>
                 <div class="carousel-item">
-                    <img src="public/imgs/banners/banner-diversao.png" class="w-100" alt="">
+                    <img src="public/imgs/banners/BANNER2.png" class="w-100" alt="">
                 </div>
                 <div class="carousel-item">
-                    <img src="public/imgs/banners/banner-promocao.png" class="w-100" alt="">
-                </div>
-                <div class="carousel-item">
-                    <img src="public/imgs/banners/banner-dia-das-criancas.jpg" class="w-100" alt="">
-                </div>
-                <div class="carousel-item">
-                    <img src="public/imgs/banners/banner-tigrinho.png" class="w-100" alt="">
+                    <img src="public/imgs/banners/BANNER3.png" class="w-100" alt="">
                 </div>
             </div>
 
@@ -118,16 +111,16 @@
     </section>
     <!-- fim, area do banner carousel -->
 
+    <span class="borda verde"></span>
+
     <!-- area de produtos-->
     <section id="area-produtos">
         <h2>Novos Produtos</h2>
-        <p>clicks: <span id="clicks"></span></p>
-        <p>QTD itens: <span id="maxBox"></span></p>
-        <p>Width do item: <span id="widthBox"></span></p>
-        <button type="button" class="btn btn-primary" onclick="next()">Next</button>
-        <button type="button" class="btn btn-secondary" onclick="prev()">Prev</button>
         
         <div class="tela-produtos">
+            <button type="button" class="btn-next" onclick="next()">&gt;</button>
+            <button type="button" class="btn-prev" onclick="prev()">&lt;</button>
+
             <div id="produtos" class="produtos">
                 <div class="box-card card d-flex justify-content-center">
                     <img src="/public/imgs/produtos/novos/uno.png" alt="" class="card-img-top">
@@ -193,8 +186,10 @@
     </section>
     <!-- fim, area de produtos-->
 
+    <span class="borda azul"></span>
+
     <!-- area do footer -->
-    <footer class="footer mt-5">
+    <footer class="footer mt-5 w-100">
         <div class="footer-container">
             <p>&copy; 2025 ToyMania 🧸 | Todos os direitos reservados</p>
             <p><a href="#">Política de Privacidade</a> · <a href="#">Contato</a></p>
