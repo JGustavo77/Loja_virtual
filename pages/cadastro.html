@@ -76,7 +76,6 @@
           </div>
       </nav>
   </header>
-  <!-- fim, area do header -->
 
   <section id="container-cadastro">
     <div class="container d-flex justify-content-center align-items-center">
@@ -93,31 +92,31 @@
 
           <div class="col-md-6">
             <label for="cpf" class="form-label">CPF ou CNPJ</label>
-            <input type="text" id="cpf" name="cpf" class="form-control" placeholder="Ex: 123.456.789-09" /> <small
+            <input type="text" id="cpf" name="cpf" class="form-control" placeholder="Ex: 123.456.789-09" required/> <small
               class="error-message"></small>
           </div>
 
           <div class="col-md-6">
             <label for="email" class="form-label">E-mail</label>
-            <input type="email" id="email" class="form-control" name="email" placeholder="seuemail@exemplo.com" />
+            <input type="email" id="email" class="form-control" name="email" placeholder="seuemail@exemplo.com" required />
             <small class="error-message"></small>
           </div>
 
           <div class="col-md-6">
             <label for="telefone" class="form-label">Telefone</label>
-            <input type="tel" id="telefone" name="telefone" class="form-control" placeholder="Ex: (11) 91234-5678" />
+            <input type="tel" id="telefone" name="telefone" class="form-control" placeholder="Ex: (11) 91234-5678" required />
             <small class="error-message"></small>
           </div>
 
           <div class="col-md-6">
             <label for="data-nascimento" class="form-label">Data de nascimento</label>
             <input type="date" id="data-nascimento" class="form-control" name="data-nascimento"
-              placeholder="Ex: 01/01/2000" /> <small class="error-message"></small>
+              placeholder="Ex: 01/01/2000" required /> <small class="error-message"></small>
           </div>
 
           <div class="col-md-6">
             <label for="cep" class="form-label">CEP</label>
-            <input type="text" id="cep" name="cep" class="form-control" placeholder="Ex: 58000-000" /> <small
+            <input type="text" id="cep" name="cep" class="form-control" placeholder="Ex: 58000-000" required /> <small
               class="error-message"></small>
           </div>
 
@@ -130,30 +129,30 @@
           <div class="col-md-6">
             <label for="endereco" class="form-label">Endereço</label>
             <input type="text" id="endereco" name="endereco" class="form-control" placeholder="Ex: Rua das Flores"
-              required />
+              required /> <small class="error-message"></small>
           </div>
 
           <div class="col-md-6">
             <label for="complemento" class="form-label">Complemento</label>
             <input type="text" id="complemento" name="complemento" class="form-control"
-              placeholder="Ex: casa, apartamento" />
+              placeholder="Ex: casa, apartamento" required /> <small class="error-message"></small>
           </div>
 
           <div class="col-md-6">
             <label for="bairro" class="form-label">Bairro</label>
-            <input type="text" id="bairro" name="bairro" class="form-control" placeholder="Ex: Centro" required />
+            <input type="text" id="bairro" name="bairro" class="form-control" placeholder="Ex: Centro" required /> <small class="error-message"></small>
           </div>
 
           <div class="col-md-6">
             <select id="estado" name="estado" class="form-control" required>
               <option value="">Selecione o estado</option>
-            </select>
+            </select> <small class="error-message"></small>
           </div>
 
           <div class="col-md-6">
             <select id="cidade" name="cidade" class="form-control" required>
               <option value="">Selecione a cidade</option>
-            </select>
+            </select> <small class="error-message"></small>
           </div>
 
           <div class="col-md-6">
@@ -169,7 +168,7 @@
             <br>
           </div>
 
-          <button class="btn btn-primary w-100" id="btn-cadastrar">Cadastrar</button>
+          <button class="btn btn-primary w-100" id="btn-cadastrar" type="submit">Cadastrar</button>
           <br>
           <p id="tem-conta">Já tem conta? <a href="login.html#container-cadastro">Fazer login</a></p>
 

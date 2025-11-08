@@ -119,12 +119,14 @@ if (cepInput) {
 const form = document.getElementById("form-cadastro");
 
 const nomeInput = document.getElementById("nome");
+const cpfInput = document.getElementById("cpf");
 const emailInput = document.getElementById("email");
 const telefoneInput = document.getElementById("telefone");
 const numeroInput = document.getElementById("numero");
 const dataNascimentoInput = document.getElementById("data-nascimento");
 const senhaInput = document.getElementById("senha");
 const confirmarSenhaInput = document.getElementById("confirmar-senha");
+const complementoInput = document.getElementById("complemento");
 
 form.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -146,7 +148,9 @@ function limparErro(input) {
     input.style.borderColor = "";
 }
 
-form.addEventListener("input", function () {
+form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    
     let valido = true;
 
     if (nomeInput && (nomeInput.value.trim() === "" || nomeInput.value.length < 6)) {
@@ -180,8 +184,8 @@ form.addEventListener("input", function () {
     } else {
         limparErro(dataNascimentoInput);
     }
-    if (numeroInput.value.trim() === "" || numeroInput.value > 100000) {
-        mostrarErro(numeroInput, "Por favor, insira um número válido.");
+    if (!validarNumero(numeroInput.value) && numeroInput.value.trim() !== "") {
+        mostrarErro(numeroInput, "Por favor, insira um número válido (apenas dígitos, 1 a 100000).");
         valido = false;
     } else {
         limparErro(numeroInput);
@@ -207,6 +211,12 @@ form.addEventListener("input", function () {
     } else {
         limparErro(document.getElementById("cpf"));
     }
+    if (!validarComplemento(complementoInput.value)) {
+        mostrarErro(complementoInput, "Por favor, insira um complemento válido.");
+        valido = false;
+    }   else {
+        limparErro(complementoInput);
+    }
 
 
     if (valido) {
@@ -214,6 +224,81 @@ form.addEventListener("input", function () {
     }
 
 });
+nomeInput.addEventListener("blur", function () {
+    if (nomeInput.value.trim() === "" || nomeInput.value.length < 6) {
+        mostrarErro(nomeInput, "Por favor, insira seu nome completo.");
+    } else {
+        limparErro(nomeInput);
+}
+});
+
+
+
+cpfInput.addEventListener("input", function () {
+    if (!validarCPF(cpfInput.value) && cpfInput.value.trim() !== "") {
+        mostrarErro(cpfInput, "Por favor, insira um CPF válido.");
+    } else {
+        limparErro(cpfInput);
+    }
+}); 
+
+emailInput.addEventListener("input", function () {
+    if (!validarEmail(emailInput.value) && emailInput.value.trim() !== "") {
+        mostrarErro(emailInput, "Por favor, insira um email válido.");
+    } else {
+        limparErro(emailInput);
+    }
+});
+
+telefoneInput.addEventListener("input", function () {
+    if (!validarTelefone(telefoneInput.value)) {
+        mostrarErro(telefoneInput, "Por favor, insira um telefone válido.");
+    } else {
+        limparErro(telefoneInput);
+    }
+});
+
+dataNascimentoInput.addEventListener("input", function () {
+    if (!validarDataNascimento(dataNascimentoInput.value)) {
+        mostrarErro(dataNascimentoInput, "Por favor, insira uma data de nascimento válida.");
+    } else {
+        limparErro(dataNascimentoInput);
+    }
+});
+
+numeroInput.addEventListener("input", function () {
+    if (!validarNumero(numeroInput.value)) {
+        mostrarErro(numeroInput, "Por favor, insira um número válido (apenas dígitos, 1 a 100000).");
+    } else {
+        limparErro(numeroInput);
+    }
+});
+
+senhaInput.addEventListener("input", function () {
+    if (!validarSenha(senhaInput.value)) {
+        mostrarErro(senhaInput, "A senha deve ter entre 8 e 14 caracteres, incluindo uma letra maiúscula e um número.");
+    } else {
+        limparErro(senhaInput);
+    }
+});
+
+confirmarSenhaInput.addEventListener("input", function () {
+    if (!confirmarSenha(senhaInput.value, confirmarSenhaInput.value)) {
+        mostrarErro(confirmarSenhaInput, "As senhas não coincidem.");
+    } else {
+        limparErro(confirmarSenhaInput);
+    }
+});
+
+complementoInput.addEventListener("input", function () {
+    if (!validarComplemento(complementoInput.value)) {
+        mostrarErro(complementoInput, "Por favor, insira um complemento válido.");
+    } else {
+        limparErro(complementoInput);
+    }
+});
+
+
 
 function validarEmail(email) {
     const padraoEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -240,6 +325,25 @@ function validarSenha(senha) {
 
 function confirmarSenha(senha, confirmarSenha) {
     return senha === confirmarSenha;
+}
+
+/**
+ * Valida se o valor do número (número da casa) é um inteiro positivo válido.
+ * Aceita apenas dígitos (sem sinais ou espaços) e verifica intervalo (1..100000).
+ * Retorna true se for válido, false caso contrário.
+ */
+function validarNumero(valor) {
+    // garante que lidamos com string
+    if (valor === null || valor === undefined) return false;
+    if (typeof valor !== 'string') valor = String(valor);
+    const trimmed = valor.trim();
+    if (trimmed === '') return false;
+    // apenas dígitos
+    if (!/^\d+$/.test(trimmed)) return false;
+    const num = Number(trimmed);
+    if (!Number.isFinite(num) || !Number.isInteger(num)) return false;
+    if (num <= 0 || num > 100000) return false;
+    return true;
 }
 
 /**
@@ -321,5 +425,3 @@ function validarCPF(cpf) {
     console.log(`O CPF ${cpf} é VÁLIDO.`);
     return true;
 }
-
-
